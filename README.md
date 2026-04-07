@@ -2,11 +2,11 @@
 
 本專案實作了一個基於 **LangGraph** 的自動化多文檔財務分析代理系統。透過構建狀態感知（State-aware）的 RAG 流程，實現了具備自我修正與智慧路由功能的金融分析工具。
 
----
+
 ## Execution
 * Step1: `python build_rag.py`
 * Step2: `python evaluator.py`
----
+
 
 ## 📊 實驗結果與模型比較 (Q1)
 
@@ -21,7 +21,6 @@
 
 **核心發現**：輕量級模型在區分「季度數據」與「全年總計」時仍具局限性。模型選擇應優先考慮問題語系與專業領域的適配，而非僅看排名。
 
----
 
 ## 🔍 LangGraph vs. LangChain 詳細對照 (Q2)
 
@@ -39,7 +38,6 @@
 * **State Awareness**：利用 `search_count` 監控重試次數，避免 API 無止盡消耗。
 * **Intelligent Routing**：預先判斷查詢目標（Apple/Tesla），提高檢索精準度 (Task B: Router)。
 
----
 
 ## ⚙️ Chunk Size 對大型表格的影響 (Q3)
 
