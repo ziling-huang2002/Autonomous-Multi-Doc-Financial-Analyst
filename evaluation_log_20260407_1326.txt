@@ -1,0 +1,459 @@
+
+==================================================
+📄 ASSIGNMENT 3 EVALUATION REPORT
+⏰ Time: 2026-04-07 13:26:34
+🤖 Agent Mode: GRAPH
+==================================================
+
+🚀 STARTING AI-POWERED EVALUATION...
+==================================================
+
+Running: Test A: Apple Revenue...
+Question: Apple 2024 年的總營收 (Total net sales) 是多少？
+Thought: To answer the user's question, we need to find the total net sales of Apple in 2024. This information is typically found in a company's annual financial reports or quarterly earnings releases. Since the question specifically asks for Apple's data, we should check Apple's financial database or reports.
+Action: search_apple_financials
+Action Input: Apple 2024 年的總營收 (Total net sales) 是多少？
+Observation: Retrieved documents from vector store.
+  ✅ Relevant
+  ❌ Irrelevant
+  ❌ Irrelevant
+  ❌ Irrelevant
+  ❌ Irrelevant
+Thought: I have sufficient information to answer.
+A: According to the provided context, the total net sales for Apple in 2024 is $391,035 million. [Source: Apple FY24_Q4_Consolidated_Financial_Statements.pdf, page 1]
+✅ PASS (15.85s)
+--------------------------------------------------
+Waiting for API quota to reset...
+Running: Test B: Tesla R&D...
+Question: Tesla 2024 年的研發費用 (R&D expenses) 是多少？
+Thought: To answer the user's question about Tesla's 2024 R&D expenses, I need to access the financial data of Tesla, specifically the information related to their research and development expenditures for the year 2024. This would typically be found in their annual reports or financial statements.
+Action: search_tesla_financials
+Action Input: Tesla 2024 年的研發費用 (R&D expenses) 是多少？
+Observation: Retrieved documents from vector store.
+  ❌ Irrelevant
+  ✅ Relevant
+  ❌ Irrelevant
+  ❌ Irrelevant
+  ❌ Irrelevant
+Thought: I have sufficient information to answer.
+A: According to the provided context, Tesla's research and development (R&D) expenses for 2024 were $4,540 million. [Source: Tesla Consolidated Statements of Operations, page 51 of the document 'tsla-20241231-gen.pdf']
+❌ FAIL (15.94s)
+   Agent Answer: According to the provided context, Tesla's research and development (R&D) expenses for 2024 were $4,540 million. [Source: Tesla Consolidated Statements of Operations, page 51 of the document 'tsla-20241231-gen.pdf']
+   Judge Verdict: FAIL
+--------------------------------------------------
+Waiting for API quota to reset...
+Running: Test D: Apple Services Cost...
+Question: Apple 2024 年的「服務成本 (Cost of sales - Services)」是多少？
+Thought: To answer the user's question, we need to find the 'Cost of sales - Services' for Apple in the year 2024. This information is typically found in a company's financial statements, such as the income statement. We should check the financial database of Apple to find this specific data.
+Action: search_apple_financials
+Action Input: Apple 2024 年的「服務成本 (Cost of sales - Services)」是多少？
+Observation: Retrieved documents from vector store.
+  ✅ Relevant
+  ❌ Irrelevant
+  ❌ Irrelevant
+  ❌ Irrelevant
+  ❌ Irrelevant
+Thought: I have sufficient information to answer.
+A: The "Cost of sales - Services" for Apple in 2024 is $25,119 million. [Source: Apple FY24 Q4 Consolidated Financial Statements, page 1]
+✅ PASS (15.92s)
+--------------------------------------------------
+Waiting for API quota to reset...
+Running: Test E: Tesla Energy Revenue...
+Question: Tesla 2024 年的「能源發電與儲存 (Energy generation and storage)」營收是多少？
+Thought: To answer the user's question, we need to find the revenue of Tesla's energy generation and storage segment for the year 2024. This information is typically found in a company's annual reports or financial statements. Since the question specifically asks about Tesla, we should check Tesla's database for the required information.
+Action: search_tesla_financials
+Action Input: Tesla 2024 年的「能源發電與儲存 (Energy generation and storage)」營收是多少？
+Observation: Retrieved documents from vector store.
+  ✅ Relevant
+  ❌ Irrelevant
+  ❌ Irrelevant
+  ❌ Irrelevant
+  ✅ Relevant
+Thought: I have sufficient information to answer.
+A: The revenue of Tesla's "Energy generation and storage" in 2024 is $10,086 million. [Source: Tesla 2024 Consolidated Statements of Operations, page 51]
+❌ FAIL (16.68s)
+   Agent Answer: The revenue of Tesla's "Energy generation and storage" in 2024 is $10,086 million. [Source: Tesla 2024 Consolidated Statements of Operations, page 51]
+   Judge Verdict: FAIL
+--------------------------------------------------
+Waiting for API quota to reset...
+Running: Test G: Unknown Info...
+Question: Apple 計畫在 2025 年發布的 iPhone 17 預計售價是多少？
+Thought: To answer the user's question about the predicted price of the iPhone 17 planned for release in 2025, I would need information on Apple's future product releases and their pricing strategies. This would involve looking into Apple's financial reports, press releases, and any official statements regarding upcoming products. Since the question specifically pertains to Apple, I would focus on Apple's database to find relevant information.
+Action: search_apple_financials
+Action Input: Apple 計畫在 2025 年發布的 iPhone 17 預計售價是多少？
+Observation: Retrieved documents from vector store.
+  ❌ Irrelevant
+  ❌ Irrelevant
+  ❌ Irrelevant
+  ❌ Irrelevant
+  ❌ Irrelevant
+--- 🔄 REWRITING QUERY ---
+   New Question: 2025 年蘋果 iPhone 17 預計發布價格是多少？
+Question: 2025 年蘋果 iPhone 17 預計發布價格是多少？
+Thought: To answer the user's question about the predicted release price of the iPhone 17 in 2025, I would need information on Apple's product releases, pricing trends, and market forecasts. This data is likely to be found in Apple's financial reports, market research analyses, or tech industry news sources.
+Action: search_apple_financials
+Action Input: 2025 年蘋果 iPhone 17 預計發布價格是多少？
+Observation: Retrieved documents from vector store.
+  ❌ Irrelevant
+  ❌ Irrelevant
+  ❌ Irrelevant
+  ❌ Irrelevant
+  ❌ Irrelevant
+--- 🔄 REWRITING QUERY ---
+   New Question: 2025 年蘋果 iPhone 17 預計發布價格範圍是多少？或者可以查詢「2025 iPhone 17 發布價格」、「蘋果 iPhone 17 預計價格」、「iPhone 17 上市價格」等相關資訊。
+Question: 2025 年蘋果 iPhone 17 預計發布價格範圍是多少？或者可以查詢「2025 iPhone 17 發布價格」、「蘋果 iPhone 17 預計價格」、「iPhone 17 上市價格」等相關資訊。
+Thought: To answer the user's question about the predicted price range of the 2025 Apple iPhone 17, I need information on Apple's upcoming product releases and their pricing strategies. This would involve looking into Apple's official announcements, financial reports, or reputable tech news sources that cover Apple products.
+Action: search_apple_financials
+Action Input: 2025 年蘋果 iPhone 17 預計發布價格範圍是多少？或者可以查詢「2025 iPhone 17 發布價格」、「蘋果 iPhone 17 預計價格」、「iPhone 17 上市價格」等相關資訊。
+Observation: Retrieved documents from vector store.
+  ❌ Irrelevant
+  ❌ Irrelevant
+  ❌ Irrelevant
+  ❌ Irrelevant
+  ❌ Irrelevant
+   (Max retries reached, generating anyway...)
+Thought: I have sufficient information to answer.
+A: I don't know. [Source: No available data] 
+
+As a financial analyst, I do not have access to real-time or future data, especially for specific product releases and pricing. The context provided is empty, and I couldn't find any relevant information about the 2025 iPhone 17 release price. For the most...
+✅ PASS (45.67s)
+--------------------------------------------------
+Waiting for API quota to reset...
+Running: Test A1 [Eng]: Apple Revenue...
+Question: What was Apple's Total Net Sales for the fiscal year 2024?
+Thought: To answer the user's question, we need to find the Total Net Sales for Apple in the fiscal year 2024. This information is typically found in a company's financial statements, such as the annual report (10-K filing) or quarterly reports (10-Q filings). Since the question specifically asks about Apple, we should look into Apple's financial database.
+Action: search_apple_financials
+Action Input: What was Apple's Total Net Sales for the fiscal year 2024?
+Observation: Retrieved documents from vector store.
+  ✅ Relevant
+  ❌ Irrelevant
+  ❌ Irrelevant
+  ❌ Irrelevant
+  ❌ Irrelevant
+Thought: I have sufficient information to answer.
+A: According to the provided context, Apple's Total Net Sales for the fiscal year 2024 were $391,035 million. [Source: Apple FY24 Q4 Consolidated Financial Statements, page 1]
+✅ PASS (16.05s)
+--------------------------------------------------
+Waiting for API quota to reset...
+Running: Test A2 [Eng]: Tesla Automotive Revenue...
+Question: What is the specific revenue figure for 'Automotive sales' for Tesla in 2024?
+Thought: To answer the user's question, we need to find the specific revenue figure for 'Automotive sales' for Tesla in 2024. This requires accessing financial data related to Tesla's performance in the year 2024, particularly the segment related to automotive sales. Given that Tesla is an automotive and clean energy company, its financial reports would likely include detailed breakdowns of revenue by segment, including automotive sales. Therefore, we should look into Tesla's financial database or reports from 2024 to find this information.
+Action: search_tesla_financials
+Action Input: What is the specific revenue figure for 'Automotive sales' for Tesla in 2024?
+Observation: Retrieved documents from vector store.
+  ✅ Relevant
+  ✅ Relevant
+  ❌ Irrelevant
+  ✅ Relevant
+  ❌ Irrelevant
+Thought: I have sufficient information to answer.
+A: The specific revenue figure for 'Automotive sales' for Tesla in 2024 is $72,480 million. [Source: Tesla 2024 Consolidated Statements of Operations, page 51]
+❌ FAIL (16.61s)
+   Agent Answer: The specific revenue figure for 'Automotive sales' for Tesla in 2024 is $72,480 million. [Source: Tesla 2024 Consolidated Statements of Operations, page 51]
+   Judge Verdict: FAIL
+--------------------------------------------------
+Waiting for API quota to reset...
+Running: Test B1 [Mixed]: Apple R&D...
+Question: Apple 2024 年的研發費用 (Research and development expenses) 是多少？
+Thought: To answer the user's question, we need to find the research and development expenses of Apple for the year 2024. This information is typically found in a company's financial statements or annual reports. Since the question specifically asks about Apple, we should check Apple's database for the required information.
+Action: search_apple_financials
+Action Input: Apple 2024 年的研發費用 (Research and development expenses) 是多少？
+Observation: Retrieved documents from vector store.
+  ❌ Irrelevant
+  ✅ Relevant
+  ❌ Irrelevant
+  ❌ Irrelevant
+  ❌ Irrelevant
+Thought: I have sufficient information to answer.
+A: According to the provided context, the research and development expenses for Apple in 2024 were $31,370 million [Source: Apple FY24_Q4_Consolidated_Financial_Statements.pdf]. This is based on the condensed consolidated statements of operations for the twelve months ended September 28, 2024.
+✅ PASS (17.03s)
+--------------------------------------------------
+Waiting for API quota to reset...
+Running: Test B2 [Mixed]: Tesla CapEx...
+Question: Tesla 在 2024 年的資本支出 (Capital Expenditures) 是多少？
+Thought: To answer the user's question, we need to find the capital expenditures of Tesla in 2024. This information is typically found in a company's financial statements, such as the annual report or 10-K filing. Since the question specifically asks about Tesla, we should look for this data in Tesla's financial records.
+Action: search_tesla_financials
+Action Input: Tesla 在 2024 年的資本支出 (Capital Expenditures) 是多少？
+Observation: Retrieved documents from vector store.
+  ❌ Irrelevant
+  ❌ Irrelevant
+  ❌ Irrelevant
+  ❌ Irrelevant
+  ❌ Irrelevant
+--- 🔄 REWRITING QUERY ---
+   New Question: 特斯拉 2024 年資本支出預估或實際數據是多少？
+Question: 特斯拉 2024 年資本支出預估或實際數據是多少？
+Thought: To answer the user's question about Tesla's 2024 capital expenditure estimate or actual data, I need to access financial data related to Tesla's investments and expenditures. This information is typically found in a company's financial reports or statements. Given the options, I should check the database of the company directly related to the query, which is Tesla.
+Action: search_tesla_financials
+Action Input: 特斯拉 2024 年資本支出預估或實際數據是多少？
+Observation: Retrieved documents from vector store.
+  ❌ Irrelevant
+  ❌ Irrelevant
+  ❌ Irrelevant
+  ❌ Irrelevant
+  ❌ Irrelevant
+--- 🔄 REWRITING QUERY ---
+   New Question: 特斯拉 2024 年資本支出預測或實際數據是多少？或者特斯拉 2024 年的資本開支預估、投資支出或財務預測報告。
+Question: 特斯拉 2024 年資本支出預測或實際數據是多少？或者特斯拉 2024 年的資本開支預估、投資支出或財務預測報告。
+Thought: To answer the user's question about Tesla's 2024 capital expenditure forecast or actual data, we need to access financial data and forecasts related to Tesla. This would involve looking into Tesla's financial reports, investor presentations, or reputable financial databases that track such information. Given the specifics of the question, which is focused solely on Tesla, we can determine the appropriate datasource.
+Action: search_tesla_financials
+Action Input: 特斯拉 2024 年資本支出預測或實際數據是多少？或者特斯拉 2024 年的資本開支預估、投資支出或財務預測報告。
+Observation: Retrieved documents from vector store.
+  ❌ Irrelevant
+  ❌ Irrelevant
+  ❌ Irrelevant
+  ❌ Irrelevant
+  ❌ Irrelevant
+   (Max retries reached, generating anyway...)
+Thought: I have sufficient information to answer.
+A: I don't know the specific details of Tesla's 2024 capital expenditure forecast or actual data, as the provided context is empty. For the most accurate and up-to-date information, I recommend checking Tesla's official financial reports or statements, such as their 10-K or 10-Q filings with the Securi...
+❌ FAIL (58.43s)
+   Agent Answer: I don't know the specific details of Tesla's 2024 capital expenditure forecast or actual data, as the provided context is empty. For the most accurate and up-to-date information, I recommend checking Tesla's official financial reports or statements, such as their 10-K or 10-Q filings with the Securi...
+   Judge Verdict: FAIL
+--------------------------------------------------
+Waiting for API quota to reset...
+Running: Test C1 [Eng]: R&D Comparison...
+Question: Compare the Research and Development (R&D) expenses of Apple and Tesla in 2024. Who spent more?
+Thought: To compare the Research and Development (R&D) expenses of Apple and Tesla in 2024, we need to access the financial data of both companies for the year 2024. This would typically involve looking at their annual reports or financial statements, such as the 10-K reports filed with the Securities and Exchange Commission (SEC). Since we are comparing the two companies directly, we will need data from both Apple and Tesla.
+Action: search_both_financials
+Action Input: Compare the Research and Development (R&D) expenses of Apple and Tesla in 2024. Who spent more?
+Observation: Retrieved documents from vector store.
+  ❌ Irrelevant
+  ❌ Irrelevant
+  ❌ Irrelevant
+  ❌ Irrelevant
+  ❌ Irrelevant
+  ❌ Irrelevant
+  ❌ Irrelevant
+  ❌ Irrelevant
+  ❌ Irrelevant
+  ❌ Irrelevant
+--- 🔄 REWRITING QUERY ---
+   New Question: What were the respective R&D expenditures for Apple Inc. and Tesla Inc. in the fiscal year 2024, and which company had the higher research and development expense.
+Question: What were the respective R&D expenditures for Apple Inc. and Tesla Inc. in the fiscal year 2024, and which company had the higher research and development expense.
+Thought: To answer this question, we need to access the financial data of both Apple Inc. and Tesla Inc. for the fiscal year 2024. Specifically, we are looking for the research and development (R&D) expenditures of each company. This information is typically found in the companies' annual reports or financial statements. Since we are comparing the two companies, we will need to check the databases of both Apple and Tesla to retrieve their respective R&D expenditures for 2024 and then compare these values to determine which company had the higher research and development expense.
+Action: search_both_financials
+Action Input: What were the respective R&D expenditures for Apple Inc. and Tesla Inc. in the fiscal year 2024, and which company had the higher research and development expense.
+Observation: Retrieved documents from vector store.
+  ❌ Irrelevant
+  ❌ Irrelevant
+  ❌ Irrelevant
+  ❌ Irrelevant
+  ❌ Irrelevant
+  ❌ Irrelevant
+  ❌ Irrelevant
+  ❌ Irrelevant
+  ❌ Irrelevant
+  ❌ Irrelevant
+--- 🔄 REWRITING QUERY ---
+   New Question: What were the research and development expenses for Apple Inc. (AAPL) and Tesla Inc. (TSLA) in their respective fiscal year 2024 financial reports, and which company reported the higher R&D expenditure.
+Question: What were the research and development expenses for Apple Inc. (AAPL) and Tesla Inc. (TSLA) in their respective fiscal year 2024 financial reports, and which company reported the higher R&D expenditure.
+Thought: To answer this question, we need to access the financial reports of Apple Inc. (AAPL) and Tesla Inc. (TSLA) for their fiscal year 2024. Specifically, we are looking for the research and development expenses. This information is typically found in the companies' annual reports (10-K filings) or quarterly reports (10-Q filings) submitted to the Securities and Exchange Commission (SEC). Since we are comparing the two companies, we will need data from both Apple and Tesla.
+Action: search_both_financials
+Action Input: What were the research and development expenses for Apple Inc. (AAPL) and Tesla Inc. (TSLA) in their respective fiscal year 2024 financial reports, and which company reported the higher R&D expenditure.
+Observation: Retrieved documents from vector store.
+  ❌ Irrelevant
+  ❌ Irrelevant
+  ❌ Irrelevant
+  ❌ Irrelevant
+  ❌ Irrelevant
+  ❌ Irrelevant
+  ❌ Irrelevant
+  ❌ Irrelevant
+  ❌ Irrelevant
+  ❌ Irrelevant
+   (Max retries reached, generating anyway...)
+Thought: I have sufficient information to answer.
+A: I don't know. 
+
+Since the context is empty and does not provide any information about the fiscal year 2024 financial reports of Apple Inc. (AAPL) and Tesla Inc. (TSLA), I am unable to determine the research and development expenses for these companies. Typically, this information can be found in the...
+❌ FAIL (99.79s)
+   Agent Answer: I don't know. 
+
+Since the context is empty and does not provide any information about the fiscal year 2024 financial reports of Apple Inc. (AAPL) and Tesla Inc. (TSLA), I am unable to determine the research and development expenses for these companies. Typically, this information can be found in the...
+   Judge Verdict: FAIL
+--------------------------------------------------
+Waiting for API quota to reset...
+Running: Test C2 [Eng]: Gross Margin Analysis...
+Question: Which company had a higher Total Gross Margin percentage in 2024, Apple or Tesla? Please provide the approximate percentages.
+Thought: To answer this question, we need the Total Gross Margin percentage for both Apple and Tesla in 2024. This information can typically be found in the financial reports or statements of each company. Since we are comparing the two companies, we will need to access the financial data of both Apple and Tesla.
+Action: search_both_financials
+Action Input: Which company had a higher Total Gross Margin percentage in 2024, Apple or Tesla? Please provide the approximate percentages.
+Observation: Retrieved documents from vector store.
+  ❌ Irrelevant
+  ❌ Irrelevant
+  ❌ Irrelevant
+  ❌ Irrelevant
+  ❌ Irrelevant
+  ❌ Irrelevant
+  ❌ Irrelevant
+  ❌ Irrelevant
+  ❌ Irrelevant
+  ❌ Irrelevant
+--- 🔄 REWRITING QUERY ---
+   New Question: What were the approximate total gross margin percentages for Apple Inc. and Tesla Inc. in 2024, and which company had the higher percentage.
+Question: What were the approximate total gross margin percentages for Apple Inc. and Tesla Inc. in 2024, and which company had the higher percentage.
+Thought: To answer this question, we need the financial data of Apple Inc. and Tesla Inc., specifically their total revenue and cost of goods sold for 2024. This information can be used to calculate the gross margin percentage. The formula for gross margin percentage is (Revenue - Cost of Goods Sold) / Revenue * 100. We will need to access the financial databases of both Apple and Tesla to obtain the required data.
+Action: search_both_financials
+Action Input: What were the approximate total gross margin percentages for Apple Inc. and Tesla Inc. in 2024, and which company had the higher percentage.
+Observation: Retrieved documents from vector store.
+  ❌ Irrelevant
+  ❌ Irrelevant
+  ❌ Irrelevant
+  ❌ Irrelevant
+  ❌ Irrelevant
+  ❌ Irrelevant
+⚠️ Grading failed: Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kkg1ms1gf388f3rms0gync74` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99896, Requested 522. Please try again in 6m1.152s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+⚠️ Grading failed: Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kkg1ms1gf388f3rms0gync74` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99894, Requested 312. Please try again in 2m57.984s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+⚠️ Grading failed: Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kkg1ms1gf388f3rms0gync74` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99891, Requested 386. Please try again in 3m59.328s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+⚠️ Grading failed: Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kkg1ms1gf388f3rms0gync74` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99889, Requested 427. Please try again in 4m33.024s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+--- 🔄 REWRITING QUERY ---
+--- 🔄 REWRITING QUERY ---
+--- 🔄 REWRITING QUERY ---
+❌ CRASH: RetryError[<Future at 0x1aaaa9b4b50 state=finished raised RateLimitError>]
+--------------------------------------------------
+Waiting for API quota to reset...
+Running: Test D1 [Eng]: Apple Services Cost...
+Question: According to the Consolidated Statements of Operations, what was Apple's 'Cost of sales' specifically for 'Services' in 2024?
+⚠️ Router parsing failed, defaulting to 'both'. Error: Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kkg1ms1gf388f3rms0gync74` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99880, Requested 245. Please try again in 1m48s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+Thought: Defaulting to broad search for: According to the Consolidated Statements of Operations, what was Apple's 'Cost of sales' specifically for 'Services' in 2024?
+Action: search_both_financials
+Action Input: According to the Consolidated Statements of Operations, what was Apple's 'Cost of sales' specifically for 'Services' in 2024?
+Observation: Retrieved documents from vector store.
+⚠️ Grading failed: Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kkg1ms1gf388f3rms0gync74` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99876, Requested 572. Please try again in 6m27.071999999s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+⚠️ Grading failed: Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kkg1ms1gf388f3rms0gync74` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99873, Requested 552. Please try again in 6m7.2s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+⚠️ Grading failed: Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kkg1ms1gf388f3rms0gync74` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99871, Requested 484. Please try again in 5m6.72s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+⚠️ Grading failed: Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kkg1ms1gf388f3rms0gync74` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99868, Requested 496. Please try again in 5m14.496s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+⚠️ Grading failed: Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kkg1ms1gf388f3rms0gync74` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99866, Requested 376. Please try again in 3m29.088s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+⚠️ Grading failed: Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kkg1ms1gf388f3rms0gync74` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99863, Requested 416. Please try again in 4m1.055999999s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+⚠️ Grading failed: Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kkg1ms1gf388f3rms0gync74` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99861, Requested 414. Please try again in 3m57.6s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+⚠️ Grading failed: Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kkg1ms1gf388f3rms0gync74` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99859, Requested 385. Please try again in 3m30.816s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+⚠️ Grading failed: Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kkg1ms1gf388f3rms0gync74` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99856, Requested 378. Please try again in 3m22.176s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+⚠️ Grading failed: Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kkg1ms1gf388f3rms0gync74` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99854, Requested 373. Please try again in 3m16.128s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+--- 🔄 REWRITING QUERY ---
+   New Question: What was Apple's 'Cost of Sales' for the 'Services' segment as reported in the Consolidated Statements of Operations for the fiscal year 2024.
+Question: What was Apple's 'Cost of Sales' for the 'Services' segment as reported in the Consolidated Statements of Operations for the fiscal year 2024.
+⚠️ Router parsing failed, defaulting to 'both'. Error: Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kkg1ms1gf388f3rms0gync74` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99928, Requested 284. Please try again in 3m3.168s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+Thought: Defaulting to broad search for: What was Apple's 'Cost of Sales' for the 'Services' segment as reported in the Consolidated Statements of Operations for the fiscal year 2024.
+Action: search_both_financials
+Action Input: What was Apple's 'Cost of Sales' for the 'Services' segment as reported in the Consolidated Statements of Operations for the fiscal year 2024.
+Observation: Retrieved documents from vector store.
+⚠️ Grading failed: Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kkg1ms1gf388f3rms0gync74` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99925, Requested 541. Please try again in 6m42.624s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+⚠️ Grading failed: Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kkg1ms1gf388f3rms0gync74` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99922, Requested 521. Please try again in 6m22.752s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+⚠️ Grading failed: Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kkg1ms1gf388f3rms0gync74` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99920, Requested 488. Please try again in 5m52.512s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+⚠️ Grading failed: Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kkg1ms1gf388f3rms0gync74` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99917, Requested 500. Please try again in 6m0.288s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+⚠️ Grading failed: Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kkg1ms1gf388f3rms0gync74` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99915, Requested 415. Please try again in 4m45.12s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+⚠️ Grading failed: Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kkg1ms1gf388f3rms0gync74` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99912, Requested 407. Please try again in 4m35.616s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+⚠️ Grading failed: Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kkg1ms1gf388f3rms0gync74` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99910, Requested 432. Please try again in 4m55.488s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+⚠️ Grading failed: Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kkg1ms1gf388f3rms0gync74` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99907, Requested 429. Please try again in 4m50.304s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+⚠️ Grading failed: Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kkg1ms1gf388f3rms0gync74` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99905, Requested 389. Please try again in 4m14.016s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+⚠️ Grading failed: Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kkg1ms1gf388f3rms0gync74` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99902, Requested 403. Please try again in 4m23.52s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+--- 🔄 REWRITING QUERY ---
+--- 🔄 REWRITING QUERY ---
+--- 🔄 REWRITING QUERY ---
+❌ CRASH: RetryError[<Future at 0x1aaab7c7dd0 state=finished raised RateLimitError>]
+--------------------------------------------------
+Waiting for API quota to reset...
+Running: Test E1 [Mixed]: 2025 Projection (Trap)...
+Question: 財報中有提到 Apple 2025 年預計的 iPhone 銷量目標嗎？
+⚠️ Router parsing failed, defaulting to 'both'. Error: Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kkg1ms1gf388f3rms0gync74` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99894, Requested 275. Please try again in 2m26.016s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+Thought: Defaulting to broad search for: 財報中有提到 Apple 2025 年預計的 iPhone 銷量目標嗎？
+Action: search_both_financials
+Action Input: 財報中有提到 Apple 2025 年預計的 iPhone 銷量目標嗎？
+Observation: Retrieved documents from vector store.
+⚠️ Grading failed: Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kkg1ms1gf388f3rms0gync74` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99891, Requested 491. Please try again in 5m30.048s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+⚠️ Grading failed: Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kkg1ms1gf388f3rms0gync74` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99888, Requested 501. Please try again in 5m36.096s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+⚠️ Grading failed: Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kkg1ms1gf388f3rms0gync74` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99886, Requested 545. Please try again in 6m12.383999999s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+⚠️ Grading failed: Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kkg1ms1gf388f3rms0gync74` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99883, Requested 525. Please try again in 5m52.512s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+⚠️ Grading failed: Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kkg1ms1gf388f3rms0gync74` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99881, Requested 310. Please try again in 2m45.024s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+⚠️ Grading failed: Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kkg1ms1gf388f3rms0gync74` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99878, Requested 433. Please try again in 4m28.704s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+⚠️ Grading failed: Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kkg1ms1gf388f3rms0gync74` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99876, Requested 387. Please try again in 3m47.232s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+⚠️ Grading failed: Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kkg1ms1gf388f3rms0gync74` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99873, Requested 415. Please try again in 4m8.832s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+⚠️ Grading failed: Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kkg1ms1gf388f3rms0gync74` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99871, Requested 382. Please try again in 3m38.592s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+⚠️ Grading failed: Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kkg1ms1gf388f3rms0gync74` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99868, Requested 409. Please try again in 3m59.328s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+--- 🔄 REWRITING QUERY ---
+   New Question: Apple 2025 年 iPhone 銷量預測或財務預測報告中有關銷量目標的資料嗎？
+Question: Apple 2025 年 iPhone 銷量預測或財務預測報告中有關銷量目標的資料嗎？
+⚠️ Router parsing failed, defaulting to 'both'. Error: Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kkg1ms1gf388f3rms0gync74` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99903, Requested 280. Please try again in 2m38.112s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+Thought: Defaulting to broad search for: Apple 2025 年 iPhone 銷量預測或財務預測報告中有關銷量目標的資料嗎？
+Action: search_both_financials
+Action Input: Apple 2025 年 iPhone 銷量預測或財務預測報告中有關銷量目標的資料嗎？
+Observation: Retrieved documents from vector store.
+⚠️ Grading failed: Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kkg1ms1gf388f3rms0gync74` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99900, Requested 537. Please try again in 6m17.568s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+⚠️ Grading failed: Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kkg1ms1gf388f3rms0gync74` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99897, Requested 530. Please try again in 6m8.928s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+⚠️ Grading failed: Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kkg1ms1gf388f3rms0gync74` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99895, Requested 471. Please try again in 5m16.224s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+⚠️ Grading failed: Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kkg1ms1gf388f3rms0gync74` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99892, Requested 496. Please try again in 5m35.232s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+⚠️ Grading failed: Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kkg1ms1gf388f3rms0gync74` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99890, Requested 315. Please try again in 2m57.12s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+⚠️ Grading failed: Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kkg1ms1gf388f3rms0gync74` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99887, Requested 365. Please try again in 3m37.728s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+⚠️ Grading failed: Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kkg1ms1gf388f3rms0gync74` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99885, Requested 375. Please try again in 3m44.64s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+⚠️ Grading failed: Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kkg1ms1gf388f3rms0gync74` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99882, Requested 251. Please try again in 1m54.912s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+⚠️ Grading failed: Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kkg1ms1gf388f3rms0gync74` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99880, Requested 366. Please try again in 3m32.543999999s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+⚠️ Grading failed: Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kkg1ms1gf388f3rms0gync74` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99877, Requested 409. Please try again in 4m7.104s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+--- 🔄 REWRITING QUERY ---
+   New Question: Apple 2025 年 iPhone 銷量預測報告或財務預測中關於銷量目標、收入預測、市場佔有率或年度銷售指標的資料。
+Question: Apple 2025 年 iPhone 銷量預測報告或財務預測中關於銷量目標、收入預測、市場佔有率或年度銷售指標的資料。
+⚠️ Router parsing failed, defaulting to 'both'. Error: Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kkg1ms1gf388f3rms0gync74` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99954, Requested 260. Please try again in 3m4.896s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+Thought: Defaulting to broad search for: Apple 2025 年 iPhone 銷量預測報告或財務預測中關於銷量目標、收入預測、市場佔有率或年度銷售指標的資料。
+Action: search_both_financials
+Action Input: Apple 2025 年 iPhone 銷量預測報告或財務預測中關於銷量目標、收入預測、市場佔有率或年度銷售指標的資料。
+Observation: Retrieved documents from vector store.
+⚠️ Grading failed: Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kkg1ms1gf388f3rms0gync74` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99951, Requested 463. Please try again in 5m57.696s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+⚠️ Grading failed: Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kkg1ms1gf388f3rms0gync74` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99948, Requested 567. Please try again in 7m24.96s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+⚠️ Grading failed: Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kkg1ms1gf388f3rms0gync74` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99946, Requested 521. Please try again in 6m43.488s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+⚠️ Grading failed: Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kkg1ms1gf388f3rms0gync74` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99943, Requested 422. Please try again in 5m15.36s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+⚠️ Grading failed: Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kkg1ms1gf388f3rms0gync74` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99941, Requested 330. Please try again in 3m54.144s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+⚠️ Grading failed: Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kkg1ms1gf388f3rms0gync74` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99938, Requested 266. Please try again in 2m56.256s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+⚠️ Grading failed: Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kkg1ms1gf388f3rms0gync74` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99936, Requested 291. Please try again in 3m16.128s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+⚠️ Grading failed: Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kkg1ms1gf388f3rms0gync74` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99933, Requested 288. Please try again in 3m10.944s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+⚠️ Grading failed: Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kkg1ms1gf388f3rms0gync74` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99931, Requested 389. Please try again in 4m36.48s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+⚠️ Grading failed: Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kkg1ms1gf388f3rms0gync74` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99928, Requested 381. Please try again in 4m26.976s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+   (Max retries reached, generating anyway...)
+Thought: I have sufficient information to answer.
+Thought: I have sufficient information to answer.
+Thought: I have sufficient information to answer.
+❌ CRASH: RetryError[<Future at 0x1aaab7be250 state=finished raised RateLimitError>]
+--------------------------------------------------
+Waiting for API quota to reset...
+Running: Test F1 [Eng]: CEO Identity...
+Question: Who signed the 10-K report as the Chief Executive Officer for Tesla?
+⚠️ Router parsing failed, defaulting to 'both'. Error: Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kkg1ms1gf388f3rms0gync74` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99921, Requested 267. Please try again in 2m42.432s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+Thought: Defaulting to broad search for: Who signed the 10-K report as the Chief Executive Officer for Tesla?
+Action: search_both_financials
+Action Input: Who signed the 10-K report as the Chief Executive Officer for Tesla?
+Observation: Retrieved documents from vector store.
+⚠️ Grading failed: Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kkg1ms1gf388f3rms0gync74` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99917, Requested 504. Please try again in 6m3.744s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+⚠️ Grading failed: Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kkg1ms1gf388f3rms0gync74` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99915, Requested 398. Please try again in 4m30.432s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+⚠️ Grading failed: Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kkg1ms1gf388f3rms0gync74` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99912, Requested 458. Please try again in 5m19.68s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+⚠️ Grading failed: Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kkg1ms1gf388f3rms0gync74` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99910, Requested 559. Please try again in 6m45.215999999s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+⚠️ Grading failed: Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kkg1ms1gf388f3rms0gync74` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99907, Requested 392. Please try again in 4m18.336s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+⚠️ Grading failed: Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kkg1ms1gf388f3rms0gync74` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99905, Requested 339. Please try again in 3m30.816s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+⚠️ Grading failed: Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kkg1ms1gf388f3rms0gync74` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99902, Requested 313. Please try again in 3m5.76s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+⚠️ Grading failed: Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kkg1ms1gf388f3rms0gync74` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99900, Requested 309. Please try again in 3m0.576s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+⚠️ Grading failed: Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kkg1ms1gf388f3rms0gync74` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99897, Requested 450. Please try again in 4m59.808s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+⚠️ Grading failed: Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kkg1ms1gf388f3rms0gync74` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99895, Requested 414. Please try again in 4m26.976s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+--- 🔄 REWRITING QUERY ---
+   New Question: Who is listed as the signing Chief Executive Officer on Tesla Inc's most recent 10-K filing with the Securities and Exchange Commission.
+Question: Who is listed as the signing Chief Executive Officer on Tesla Inc's most recent 10-K filing with the Securities and Exchange Commission.
+⚠️ Router parsing failed, defaulting to 'both'. Error: Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kkg1ms1gf388f3rms0gync74` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 100000, Requested 278. Please try again in 4m0.191999999s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+Thought: Defaulting to broad search for: Who is listed as the signing Chief Executive Officer on Tesla Inc's most recent 10-K filing with the Securities and Exchange Commission.
+Action: search_both_financials
+Action Input: Who is listed as the signing Chief Executive Officer on Tesla Inc's most recent 10-K filing with the Securities and Exchange Commission.
+Observation: Retrieved documents from vector store.
+⚠️ Grading failed: Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kkg1ms1gf388f3rms0gync74` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99997, Requested 515. Please try again in 7m22.368s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+⚠️ Grading failed: Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kkg1ms1gf388f3rms0gync74` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99994, Requested 374. Please try again in 5m17.952s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+⚠️ Grading failed: Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kkg1ms1gf388f3rms0gync74` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99992, Requested 406. Please try again in 5m43.872s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+⚠️ Grading failed: Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kkg1ms1gf388f3rms0gync74` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99989, Requested 494. Please try again in 6m57.312s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+⚠️ Grading failed: Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kkg1ms1gf388f3rms0gync74` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99987, Requested 406. Please try again in 5m39.552s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+⚠️ Grading failed: Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kkg1ms1gf388f3rms0gync74` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99984, Requested 474. Please try again in 6m35.712s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+⚠️ Grading failed: Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kkg1ms1gf388f3rms0gync74` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99982, Requested 461. Please try again in 6m22.752s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+⚠️ Grading failed: Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kkg1ms1gf388f3rms0gync74` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99979, Requested 370. Please try again in 5m1.536s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+⚠️ Grading failed: Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kkg1ms1gf388f3rms0gync74` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99977, Requested 347. Please try again in 4m39.936s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+⚠️ Grading failed: Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kkg1ms1gf388f3rms0gync74` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99974, Requested 346. Please try again in 4m36.48s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+--- 🔄 REWRITING QUERY ---
+--- 🔄 REWRITING QUERY ---
+--- 🔄 REWRITING QUERY ---
+❌ CRASH: RetryError[<Future at 0x1aaaa9be250 state=finished raised RateLimitError>]
+--------------------------------------------------
+Waiting for API quota to reset...
+
+📊 FINAL SCORE: 5/14
