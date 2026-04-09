@@ -9,3 +9,4 @@
 
 ## Note
 只要有換模型或是改chunk_size都要先build_rag，才能進行evaluator
+結果在`evaluation_log`
