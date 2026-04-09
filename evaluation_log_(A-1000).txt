@@ -1,0 +1,275 @@
+
+==================================================
+📄 ASSIGNMENT 3 EVALUATION REPORT
+⏰ Time: 2026-04-09 16:19:57
+🤖 Agent Mode: GRAPH
+==================================================
+
+🚀 STARTING AI-POWERED EVALUATION...
+==================================================
+
+Running: Test A: Apple Revenue...
+Question: Apple 2024 年的總營收 (Total net sales) 是多少？
+Thought: The question specifically asks for Apple's total net sales for the year 2024. Therefore, the relevant datasource is 'apple' as it pertains only to Apple's financials and does not involve Tesla or a comparison between the two companies.
+Action: search_apple_financials
+Action Input: What is Apple's total net sales for the fiscal year 2024?
+Observation: Retrieved documents from vector store.
+  ✅ Relevant
+  ❌ Irrelevant
+  ✅ Relevant
+  ❌ Irrelevant
+  ✅ Relevant
+Thought: Generating final answer.
+A: For the year ended September 28, 2024, Apple's total net sales amounted to $391,035 million [Source: Document 1].
+✅ PASS (8.75s)
+--------------------------------------------------
+Waiting for API quota to reset...
+Running: Test B: Tesla R&D...
+Question: Tesla 2024 年的研發費用 (R&D expenses) 是多少？
+Thought: The question specifically asks for Tesla's R&D expenses for the year 2024. Since it only pertains to Tesla and does not involve a comparison with another company, the appropriate datasource is 'tesla'.
+Action: search_tesla_financials
+Action Input: Tesla 2024 R&D expenses
+Observation: Retrieved documents from vector store.
+  ❌ Irrelevant
+  ❌ Irrelevant
+  ✅ Relevant
+  ❌ Irrelevant
+  ❌ Irrelevant
+Thought: Generating final answer.
+A: For the year ended December 31, 2024, Tesla's research and development (R&D) expenses amounted to $4,540 million. This represents an increase of $571 million, or 14%, compared to the year ended December 31, 2023, when R&D expenses were $3,969 million [Source: Document 2].
+✅ PASS (8.88s)
+--------------------------------------------------
+Waiting for API quota to reset...
+Running: Test D: Apple Services Cost...
+Question: Apple 2024 年的「服務成本 (Cost of sales - Services)」是多少？
+Thought: The question specifically asks for Apple's service costs for 2024, which means the analysis is focused solely on Apple. Therefore, the relevant datasource is 'apple'.
+Action: search_apple_financials
+Action Input: What is Apple's cost of sales for services in 2024?
+Observation: Retrieved documents from vector store.
+  ✅ Relevant
+  ❌ Irrelevant
+  ❌ Irrelevant
+  ❌ Irrelevant
+  ❌ Irrelevant
+Thought: Generating final answer.
+A: For the year ended September 28, 2024, the cost of sales for services at Apple is $25,119 million [Source: Document 1].
+✅ PASS (7.94s)
+--------------------------------------------------
+Waiting for API quota to reset...
+Running: Test E: Tesla Energy Revenue...
+Question: Tesla 2024 年的「能源發電與儲存 (Energy generation and storage)」營收是多少？
+Thought: The question specifically asks about Tesla's revenue from energy generation and storage for the year 2024. Since it is focused solely on Tesla, there is no need to reference Apple or make a comparison. Therefore, the appropriate datasource is 'tesla'.
+Action: search_tesla_financials
+Action Input: What is Tesla's projected revenue for energy generation and storage in 2024?
+Observation: Retrieved documents from vector store.
+  ✅ Relevant
+  ✅ Relevant
+  ✅ Relevant
+  ✅ Relevant
+  ❌ Irrelevant
+Thought: Generating final answer.
+A: For the year ended December 31, 2024, Tesla's revenue from the "Energy generation and storage" segment was $10,086 million [Source: Document 3].
+✅ PASS (7.64s)
+--------------------------------------------------
+Waiting for API quota to reset...
+Running: Test G: Unknown Info...
+Question: Apple 計畫在 2025 年發布的 iPhone 17 預計售價是多少？
+Thought: The question specifically asks about Apple's plans for the iPhone 17, which indicates that the relevant data source is Apple. There is no need to compare with Tesla, as the question is focused solely on Apple's product pricing.
+Action: search_apple_financials
+Action Input: What is the expected price of the iPhone 17 to be released in 2025?
+Observation: Retrieved documents from vector store.
+  ❌ Irrelevant
+  ❌ Irrelevant
+  ❌ Irrelevant
+  ❌ Irrelevant
+  ❌ Irrelevant
+Thought: Generating final answer.
+A: This information is not available in the financial reports provided.
+✅ PASS (10.50s)
+--------------------------------------------------
+Waiting for API quota to reset...
+Running: Test A1 [Eng]: Apple Revenue...
+Question: What was Apple's Total Net Sales for the fiscal year 2024?
+Thought: The question specifically asks for Apple's Total Net Sales for the fiscal year 2024, which means the focus is solely on Apple and does not involve any comparison with Tesla. Therefore, the appropriate datasource is 'apple'.
+Action: search_apple_financials
+Action Input: What were Apple's Total Net Sales for the fiscal year 2024 as reported in their 10-K?
+Observation: Retrieved documents from vector store.
+  ❌ Irrelevant
+  ❌ Irrelevant
+  ✅ Relevant
+  ✅ Relevant
+  ❌ Irrelevant
+Thought: Generating final answer.
+A: Apple's Total Net Sales for the fiscal year ended September 28, 2024, was $391,035 million [Source: Document 1].
+✅ PASS (7.79s)
+--------------------------------------------------
+Waiting for API quota to reset...
+Running: Test A2 [Eng]: Tesla Automotive Revenue...
+Question: What is the specific revenue figure for 'Automotive sales' for Tesla in 2024?
+Thought: The question specifically asks for the revenue figure for 'Automotive sales' for Tesla in 2024, which means the relevant data source is Tesla. There is no need to compare with Apple, as the question is focused solely on Tesla's performance.
+Action: search_tesla_financials
+Action Input: What is the revenue figure for 'Automotive sales' for Tesla in 2024?
+Observation: Retrieved documents from vector store.
+  ❌ Irrelevant
+  ✅ Relevant
+  ✅ Relevant
+  ❌ Irrelevant
+  ✅ Relevant
+Thought: Generating final answer.
+A: The specific revenue figure for 'Automotive sales' for Tesla in the year ended December 31, 2024, is $72,480 million [Source: Document 2].
+✅ PASS (7.83s)
+--------------------------------------------------
+Waiting for API quota to reset...
+Running: Test B1 [Mixed]: Apple R&D...
+Question: Apple 2024 年的研發費用 (Research and development expenses) 是多少？
+Thought: The question specifically asks for Apple's research and development expenses for the year 2024. Since it only pertains to Apple and does not involve a comparison with Tesla, the appropriate datasource is 'apple'.
+Action: search_apple_financials
+Action Input: What are Apple's research and development expenses for the fiscal year 2024?
+Observation: Retrieved documents from vector store.
+  ✅ Relevant
+  ❌ Irrelevant
+  ❌ Irrelevant
+  ❌ Irrelevant
+  ❌ Irrelevant
+Thought: Generating final answer.
+A: For the year ended September 28, 2024, Apple's research and development expenses amounted to $31,370 million [Source: Document 1].
+✅ PASS (7.85s)
+--------------------------------------------------
+Waiting for API quota to reset...
+Running: Test B2 [Mixed]: Tesla CapEx...
+Question: Tesla 在 2024 年的資本支出 (Capital Expenditures) 是多少？
+Thought: The question specifically asks about Tesla's capital expenditures for the year 2024. Since it only pertains to Tesla and does not involve a comparison with Apple, the appropriate datasource is 'tesla'.
+Action: search_tesla_financials
+Action Input: What are Tesla's projected capital expenditures for 2024?
+Observation: Retrieved documents from vector store.
+  ❌ Irrelevant
+  ❌ Irrelevant
+  ❌ Irrelevant
+  ✅ Relevant
+  ❌ Irrelevant
+Thought: Generating final answer.
+A: Capital expenditures for Tesla in the year ended December 31, 2024, amounted to $11.34 billion. This represents an increase of $2.44 billion compared to the capital expenditures of $8.90 billion in the year ended December 31, 2023 [Source: Document 4].
+✅ PASS (7.88s)
+--------------------------------------------------
+Waiting for API quota to reset...
+Running: Test C1 [Eng]: R&D Comparison...
+Question: Compare the Research and Development (R&D) expenses of Apple and Tesla in 2024. Who spent more?
+Thought: The question requires a comparison of the R&D expenses of both Apple and Tesla for the year 2024. Since it involves both companies, the appropriate datasource is 'both'. I will generate targeted queries to find the relevant financial data for each company.
+Action: search_both_financials
+Action Input: Apple 2024 R&D expenses from 10-K report | Tesla 2024 R&D expenses from 10-K report
+Observation: Retrieved documents from vector store.
+  ✅ Relevant
+  ✅ Relevant
+  ✅ Relevant
+  ❌ Irrelevant
+  ❌ Irrelevant
+  ❌ Irrelevant
+  ✅ Relevant
+  ✅ Relevant
+  ❌ Irrelevant
+  ✅ Relevant
+  ✅ Relevant
+  ✅ Relevant
+  ❌ Irrelevant
+  ✅ Relevant
+  ❌ Irrelevant
+  ❌ Irrelevant
+  ❌ Irrelevant
+  ✅ Relevant
+  ✅ Relevant
+  ❌ Irrelevant
+Thought: Generating final answer.
+A: For the year ended December 31, 2024, the Research and Development (R&D) expenses for Apple and Tesla are as follows:
+
+- **Apple Inc.**: R&D expenses were $31,370 million [Source: Document 1].
+- **Tesla, Inc.**: R&D expenses were $4,540 million [Source: Document 8].
+
+To determine who spent more on R...
+✅ PASS (17.06s)
+--------------------------------------------------
+Waiting for API quota to reset...
+Running: Test C2 [Eng]: Gross Margin Analysis...
+Question: Which company had a higher Total Gross Margin percentage in 2024, Apple or Tesla? Please provide the approximate percentages.
+Thought: The question requires a comparison of the Total Gross Margin percentages for both Apple and Tesla in 2024. Therefore, the datasource should be set to 'both' to gather information from both companies.
+Action: search_both_financials
+Action Input: What was Apple's Total Gross Margin percentage in 2024 according to their 10-K report? | What was Tesla's Total Gross Margin percentage in 2024 according to their 10-K report?
+Observation: Retrieved documents from vector store.
+  ❌ Irrelevant
+  ❌ Irrelevant
+  ❌ Irrelevant
+  ✅ Relevant
+  ❌ Irrelevant
+  ❌ Irrelevant
+  ✅ Relevant
+  ✅ Relevant
+  ✅ Relevant
+  ✅ Relevant
+  ❌ Irrelevant
+  ❌ Irrelevant
+  ❌ Irrelevant
+  ✅ Relevant
+  ❌ Irrelevant
+  ❌ Irrelevant
+  ❌ Irrelevant
+  ✅ Relevant
+  ✅ Relevant
+  ❌ Irrelevant
+Thought: Generating final answer.
+A: To determine which company had a higher Total Gross Margin percentage in 2024, we need to calculate the Gross Margin % for both Apple and Tesla using the provided financial data.
+
+### Apple Inc. (Year ended September 28, 2024)
+- **Total Net Sales**: $391,035 million
+- **Total Cost of Sales**: $210,3...
+✅ PASS (20.75s)
+--------------------------------------------------
+Waiting for API quota to reset...
+Running: Test D1 [Eng]: Apple Services Cost...
+Question: According to the Consolidated Statements of Operations, what was Apple's 'Cost of sales' specifically for 'Services' in 2024?
+Thought: The question specifically asks for information regarding Apple's 'Cost of sales' for 'Services' in 2024. Since it only pertains to Apple and does not involve a comparison with Tesla, the datasource should be set to 'apple'.
+Action: search_apple_financials
+Action Input: Apple 2024 10-K Cost of sales Services
+Observation: Retrieved documents from vector store.
+  ✅ Relevant
+  ❌ Irrelevant
+  ❌ Irrelevant
+  ❌ Irrelevant
+  ❌ Irrelevant
+Thought: Generating final answer.
+A: For the year ended September 28, 2024, Apple's 'Cost of sales' specifically for 'Services' was $25,119 million [Source: Document 1].
+✅ PASS (7.71s)
+--------------------------------------------------
+Waiting for API quota to reset...
+Running: Test E1 [Mixed]: 2025 Projection (Trap)...
+Question: 財報中有提到 Apple 2025 年預計的 iPhone 銷量目標嗎？
+Thought: The question specifically asks about Apple's projected iPhone sales target for 2025, which indicates that the focus is solely on Apple and does not involve Tesla. Therefore, the appropriate datasource is 'apple'.
+Action: search_apple_financials
+Action Input: Apple 2025 iPhone sales target projection
+Observation: Retrieved documents from vector store.
+  ❌ Irrelevant
+  ❌ Irrelevant
+  ❌ Irrelevant
+  ❌ Irrelevant
+  ❌ Irrelevant
+Thought: Generating final answer.
+A: This information is not available in the financial reports provided.
+✅ PASS (9.41s)
+--------------------------------------------------
+Waiting for API quota to reset...
+Running: Test F1 [Eng]: CEO Identity...
+Question: Who signed the 10-K report as the Chief Executive Officer for Tesla?
+Thought: The question specifically asks about the Chief Executive Officer who signed the 10-K report for Tesla, which means it is focused solely on Tesla and does not involve any comparison with Apple. Therefore, the appropriate datasource is 'tesla'.
+Action: search_tesla_financials
+Action Input: Who is the Chief Executive Officer that signed the 10-K report for Tesla?
+Observation: Retrieved documents from vector store.
+  ❌ Irrelevant
+  ✅ Relevant
+  ✅ Relevant
+  ✅ Relevant
+  ❌ Irrelevant
+Thought: Generating final answer.
+A: The Chief Executive Officer who signed the 10-K report for Tesla is Elon Musk. [Source: Document 2, Document 4]
+✅ PASS (7.88s)
+--------------------------------------------------
+Waiting for API quota to reset...
+
+📊 FINAL SCORE: 14/14

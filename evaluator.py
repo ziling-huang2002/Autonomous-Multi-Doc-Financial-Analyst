@@ -73,7 +73,7 @@ TEST_CASES = [
     {
         "name": "Test B: Tesla R&D",
         "question": "Tesla 2024 年的研發費用 (R&D expenses) 是多少？",
-        "must_contain": ["4.77", "billion"],
+        "must_contain": ["4,540", "million"],
         "forbidden": ["Apple"]
     },
     {
@@ -85,7 +85,7 @@ TEST_CASES = [
     {
         "name": "Test E: Tesla Energy Revenue",
         "question": "Tesla 2024 年的「能源發電與儲存 (Energy generation and storage)」營收是多少？",
-        "must_contain": ["23.7", "billion", "23,767"],
+        "must_contain": ["10", "million", "10,086"],
         "forbidden": []
     },
     {
@@ -103,7 +103,7 @@ TEST_CASES = [
     {
         "name": "Test A2 [Eng]: Tesla Automotive Revenue",
         "question": "What is the specific revenue figure for 'Automotive sales' for Tesla in 2024?",
-        "must_contain": ["78", "billion", "78,512"], 
+        "must_contain": ["72", "billion", "72,480"], 
         "forbidden": ["Apple"]
     },
 

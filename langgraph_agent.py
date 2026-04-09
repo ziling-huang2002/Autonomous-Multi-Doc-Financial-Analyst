@@ -2,6 +2,8 @@ import time
 import os
 import json
 from typing import Annotated, List, TypedDict, Literal
+from langchain_core import documents
+from langchain_core.runnables import chain
 from langgraph.graph import END, StateGraph
 from langchain_core.messages import BaseMessage, HumanMessage, SystemMessage
 from langchain_core.prompts import ChatPromptTemplate, PromptTemplate
@@ -46,78 +48,92 @@ class AgentState(TypedDict):
     search_count: int
     needs_rewrite: str
     thought: str  # 新增：用來存儲 AI 的思考過程
-
+    # 新增：存放針對個別公司的查詢詞
+    apple_query: str 
+    tesla_query: str
 
 
 # Task B: Router 階段 (對應 Thought/Action)
-@retry_logic
 def retrieve_node(state: AgentState):
     print(colored(f"Question: {state['question']}", "blue"))
     question = state["question"]
     llm = get_llm()
     
-    # --- [START] Improved Routing Logic ---
-    options = list(FILES.keys()) + ["both", "none"]
-    router_prompt = f"""
-        You are a financial analyst. Analyze the user question.
+    # 1. 初始化變數
+    docs_content = []
+    thought = "Analyzing the query to determine the best data source."
+    target = "both" # 預設值
+    q_apple = None
+    q_tesla = None
 
-        1. First, think about what info you need and which company's database to check.
-        2. Then, choose one datasource from: {options}.
+    # 2. 讓 LLM 進行路由分類 (Task B)
+    options = ["apple", "tesla", "both", "none"]
+    router_prompt = f"""
+        You are a financial analyst. Analyze this financial question: "{question}"
+        Choose one datasource from: {options}.
         
+        If the question involves comparison or both companies, set datasource to "both" 
+        and generate two targeted English search queries for our vector database.
 
         Output ONLY valid JSON:
         {{
-            "thought": "Your reasoning here in English...",
-            "datasource": "..."
+            "thought": "Your reasoning in English...",
+            "datasource": "apple" | "tesla" | "both" | "none"
+            "apple_query": "Specific English query for Apple's 10-K (or null)",
+            "tesla_query": "Specific English query for Tesla's 10-K (or null)"
         }}
         User Question: {question}
     """
-    
-    # 預設值，防止解析失敗時程式崩潰
-    thought = "Analyzing the query to determine the best data source."
-    target = "both"
 
     try:
         response = llm.invoke(router_prompt)
         content = response.content.strip()
-        # Handle cases where LLM might wrap JSON in backticks
         if "```json" in content:
             content = content.split("```json")[1].split("```")[0].strip()
         elif "```" in content:
             content = content.split("```")[1].split("```")[0].strip()
             
         res_json = json.loads(content)
-        # 從 JSON 中提取值
         thought = res_json.get("thought", thought)
         target = res_json.get("datasource", "both")
 
+        # 這裡從 JSON 抓取 LLM 自己想出來的關鍵字
+        q_apple = res_json.get("apple_query") 
+        q_tesla = res_json.get("tesla_query")
+
     except Exception as e:
-        # 先印出錯誤，再給予明確的字串賦值
-        print(colored(f"⚠️ Router parsing failed, defaulting to 'both'. Error: {e}", "red"))
-        thought = f"Defaulting to broad search for: {question}"
         target = "both"
-    
-    
-    # 按照作業格式輸出
+
+    # 3. 按照助教格式列印 Log (修正您的 if 語法)
     print(colored(f"Thought: {thought}", "yellow"))
     print(colored(f"Action: search_{target}_financials", "cyan"))
-    print(colored(f"Action Input: {question}", "cyan"))
 
-    # --- [END] ---
-
-    docs_content = [] # 改用列表儲存
-    targets_to_search = []
-    if target == "both":
-        targets_to_search = list(FILES.keys())
-    elif target in FILES:
-        targets_to_search = [target]
-    
-    for t in targets_to_search:
-        if t in RETRIEVERS:
-            docs = RETRIEVERS[t].invoke(question)
-            source_name = t.capitalize()
-            docs_content.extend(docs) # 收集 Document 物件
-
+    # --- 關鍵修正區 ---
+    if target == "both" and q_apple and q_tesla:
+        # 只有在兩者都存在時，印出合併的 Query，並執行拆分檢索
+        print(colored(f"Action Input: {q_apple} | {q_tesla}", "cyan"))
+        
+        apple_docs = RETRIEVERS["apple"].invoke(q_apple) if "apple" in RETRIEVERS else []
+        tesla_docs = RETRIEVERS["tesla"].invoke(q_tesla) if "tesla" in RETRIEVERS else []
+        
+        # Fallback：用各自財報的正確術語
+        apple_fallback = RETRIEVERS["apple"].invoke(
+            "Total net sales Total cost of sales gross margin 2024 Statement of Operations"
+        )
+        tesla_fallback = RETRIEVERS["tesla"].invoke(
+            "Total revenues Total cost of revenues gross profit 2024 consolidated"
+            # ^^^ 關鍵：Tesla 用 revenues/cost of revenues，要加 consolidated 避免撈到分部數字
+        )
+        
+        docs_content = apple_docs + tesla_docs + apple_fallback + tesla_fallback
+    elif target in RETRIEVERS:
+        # 單一公司則使用原始問題或單一 Query
+        actual_query = q_apple if target == "apple" and q_apple else (q_tesla if target == "tesla" and q_tesla else question)
+        print(colored(f"Action Input: {actual_query}", "cyan"))
+        docs_content = RETRIEVERS[target].invoke(actual_query)
+    else:
+        print(colored(f"Action Input: {question}", "cyan"))
+        docs_content = []
     return {"documents": docs_content, "search_count": state["search_count"] + 1}
 
 # Task C: Grader 階段 (對應 Observation 處理)
@@ -127,16 +143,21 @@ def grade_documents_node(state: AgentState):
     question = state["question"]
     documents = state["documents"]
     
+    # --- Debug: 確認是否有抓到資料 ---
+    if not documents:
+        print(colored("  ⚠️ No documents found to grade!", "red"))
+        return {"documents": [], "needs_rewrite": "yes"}
+
     filtered_docs = []
     needs_rewrite = "no" # 預設不需要重寫
 
     llm = get_llm() # LLM 放在迴圈外，不用每次都初始化
 
     for d in documents:
-        time.sleep(5)  # API Rate Limit 考量，避免一次性送出太多請求
         system_prompt = """You are a grader assessing relevance. 
-        Does the retrieved document contain information related to the user question?
-        Answer with ONLY one word: 'yes' or 'no'."""
+        If the user is comparing two companies, a document is RELEVANT if it contains data for EITHER company mentioned.
+        As long as the document provides financial facts that can contribute to the final answer, output 'yes'.
+        Answer with ONLY 'yes' or 'no'."""
         
         # 注意：這裡傳入的是 d.page_content (單個段落)，不是 documents (全體)
         msg = [
@@ -148,6 +169,7 @@ def grade_documents_node(state: AgentState):
             response = llm.invoke(msg)
             grade = response.content.strip().lower()
             
+            # 確保印出判定結果，方便你觀察
             if "yes" in grade:
                 print(colored("  ✅ Relevant", "green"))
                 filtered_docs.append(d)
@@ -158,35 +180,57 @@ def grade_documents_node(state: AgentState):
 
     # 如果最後一個有用的文件都沒有，就標記需要重寫
     if not filtered_docs:
-        needs_rewrite = "yes"
-
-    # 最後才回傳結果，更新 state
-    return {"documents": filtered_docs, "needs_rewrite": needs_rewrite}
+        # 新增：先判斷問題類型
+        llm = get_llm()
+        scope_check = llm.invoke(f"""
+            Is this question answerable from a company's annual financial report (10-K)?
+            Question: {question}
+            Answer ONLY 'yes' or 'no'.
+        """)
+        if "no" in scope_check.content.lower():
+            return {"documents": [], "needs_rewrite": "out_of_scope"}  # 新增狀態
+        return {"documents": [], "needs_rewrite": "yes"}
 
 # Task E: Generator 階段 (對應 Final Answer)
 @retry_logic
 def generate_node(state: AgentState):
-    print(colored("Thought: I have sufficient information to answer.", "yellow"))
+    print(colored("Thought: Generating final answer.", "yellow"))
     
     question = state["question"]
     documents = state["documents"]
     llm = get_llm() 
 
-    # 強化版 System Prompt，直接將指令寫死在 Template 中
+    # 格式化 context 包含來源資訊，方便 LLM 引用 
+    context_text = ""
+    for i, d in enumerate(documents):
+        # 這裡手動加入來源標記，幫助 LLM 符合 CITATION 規定
+        source = d.metadata.get('source', 'Financial Report')
+        context_text += f"--- Document {i+1} (Source: {source}) ---\n{d.page_content}\n\n"
+    
     prompt = ChatPromptTemplate.from_messages([
-        ("system", """You are a financial analyst. 
-        STRICT REQUIREMENT: YOUR RESPONSE MUST BE ENTIRELY IN ENGLISH.
-        Even if the user asks in Chinese, you MUST answer in English.
+        ("system", """You are a professional financial analyst. 
+        STRICT REQUIREMENTS:
+        1. LANGUAGE: Response must be ENTIRELY in English.
+        2. PRECISION: Distinguish between 2024, 2023, and 2022. Use 'Year ended' or 'Twelve months ended' for annual data.
+        3. HONESTY: If figures are missing after checking ALL context, say 'I don't know'.
+        4. CITATION: Strictly cite every claim, e.g., [Source: Apple 10-K].
+        5. CALCULATION: If 'Gross Margin %' is not explicitly stated, you MUST calculate it: (Revenue - Cost of Revenue) / Revenue. Use 'Total Net Sales' and 'Total Cost of Sales' from the Statements of Operations.
+        6. DATA PRIORITY: Prioritize 'Consolidated Total' figures over 'Segment Change' or 'Increase' amounts.
+        7. COMPARISON: For comparison questions, you MUST list figures for BOTH companies before concluding who spent/earned more.
+        8. NO TIMIDITY: If these two numbers exist anywhere in the context, use them to calculate the percentage. Do not say 'I don't know' if the raw numbers for revenue and cost are available.
+        9. MANDATORY DATA SEARCH: You MUST look for 'Total net sales' and 'Total cost of sales' in the context. They are often in a table format.
+        10. OUT OF SCOPE: If no relevant documents were found AND the question asks about future projections or information not typically in annual reports, respond clearly with "This information is not available in the financial reports provided."
+        11. 11. TERMINOLOGY: Tesla uses 'Total revenues' and 'Total cost of revenues' 
+    (NOT 'net sales'). Apple uses 'Total net sales' and 'Total cost of sales'. 
+    For Tesla gross margin %, use the CONSOLIDATED total figures, 
+    NOT segment-level (Automotive only) figures.
+         """),
         
-        Use the provided context to answer. 
-        1. Distinguish between 2024, 2023, and 2022 data.
-        2. If the answer is not found, say 'I don't know'.
-        3. ALWAYS cite the source, e.g., [Source: Apple 10-K]."""),
         ("human", "User Question: {question}\n\nContext:\n{context}"),
     ])  
     
     chain = prompt | llm
-    response = chain.invoke({"context": str(documents), "question": question})
+    response = chain.invoke({"context": context_text, "question": question})    
     return {"generation": response.content}
 
 @retry_logic
@@ -196,9 +240,14 @@ def rewrite_node(state: AgentState):
     llm = get_llm()
     
     msg = [ 
-        HumanMessage(content=f"The previous search for '{question}' yielded irrelevant results. \n"
-                             f"Please rephrase this question to be more specific or use better keywords for a financial search engine. \n"
-                             f"Output ONLY the new question text.")
+        HumanMessage(content=f"""
+        The previous search for '{question}' failed. 
+        Please provide a concise, PROFESSIONAL ENGLISH search query. 
+        - Convert '研發費用' to 'Research and development expenses'.
+        - Convert '總營收' to 'Total net sales'.
+        - Convert '毛利' to 'Gross margin'.
+        - Include 'fiscal year 2024' or 'year ended 2024'.
+        Output ONLY the new English query text.""")
     ]
     response = llm.invoke(msg)
     new_query = response.content.strip()
@@ -217,14 +266,13 @@ def build_graph():
     workflow.add_edge("retrieve", "grade_documents")
 
     def decide_to_generate(state):
-        # 如果 needs_rewrite 是 "yes"，應該要去 "rewrite" 節點，而不是 "generate"
+        if state["needs_rewrite"] == "out_of_scope":
+            return "generate"  # 直接生成「我不知道」
         if state["needs_rewrite"] == "yes":
-            if state["search_count"] > 2: 
-                print("   (Max retries reached, generating anyway...)")
+            if state["search_count"] > 2:
                 return "generate"
             return "rewrite"
-        else:
-            return "generate" # 資料合格，去生成答案
+        return "generate"
         
     workflow.add_conditional_edges(
         "grade_documents",
@@ -267,27 +315,24 @@ def run_legacy_agent(question: str):
 
     llm = get_llm()
 
-    template = """Answer the following questions as best you can. 
-    You have access to the following tools:
+    template = """Answer the following questions as best you can. You have access to the following tools:
     {tools}
 
-    Use the following format:
+    Use the following format strictly:
     Question: {input}
-    Thought: you should always think about what to do
-    Action: the action to take, should be one of [{tool_names}]
+    Thought: {agent_scratchpad}
+    Action: the action to take, must be one of [{tool_names}]
     Action Input: the input to the action
-    Observation: the result of the action
-    ... (this Thought/Action/Action Input/Observation can repeat N times)
+    Observation: the result returned by the tool
+    ... (this Thought/Action/Action Input/Observation can repeat)
     Thought: I now know the final answer
-    Final Answer: the final answer to the original input question in English.
+    Final Answer: the conclusion in English.
 
     Constraints:
-    - Respond ONLY in English.
-    - Distinguish between 2024, 2023, and 2022 data.
-    - If you cannot find the exact 2024 figure, say "I don't know"[cite: 34].
-
-    Question: {input}
-    Thought: {agent_scratchpad}"""
+    - English Only: The Final Answer must be in English[cite: 32].
+    - Year Precision: Distinguish between 2024, 2023, and 2022 data.
+    - Honesty: If the exact 2024 figure is not found, say "I don't know".
+    """
 
     prompt = PromptTemplate.from_template(template)
     prompt = prompt.partial(
@@ -312,5 +357,5 @@ def run_legacy_agent(question: str):
     
 # 在 langgraph_agent.py 最底下加入
 if __name__ == "__main__":
-    response = run_graph_agent("Apple 2024 年的總營收是多少？")
+    response = run_graph_agent("Which company had a higher Total Gross Margin percentage in 2024, Apple or Tesla? Please provide the approximate percentages.")
     print(response)

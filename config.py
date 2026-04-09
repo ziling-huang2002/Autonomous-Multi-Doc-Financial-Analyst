@@ -25,7 +25,11 @@ FILES = {
 # ==============================================================================
 # 3. Embedding Model (Can Change)
 # ==============================================================================
-LOCAL_EMBEDDING_MODEL = "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2" # BAAI/bge-small-en-v1.5
+
+# Model A (1st): intfloat/multilingual-e5-base"  # 更強的多語言模型，適合處理中文和英文
+# Model B (2nd): sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2
+
+LOCAL_EMBEDDING_MODEL = "intfloat/multilingual-e5-base"  
 
 def get_embeddings():
     print(colored(f"🔄 Loading Local Embedding Model: {LOCAL_EMBEDDING_MODEL}...", "cyan"))
